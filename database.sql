@@ -1,8 +1,9 @@
 -- Don't forget to add your create table SQL 
 -- It is also helpful to include some test data
+-- db name
+-- fs-react-shopping
 
-
-CREATE TABLE group_shopping_list (
+CREATE TABLE list (
 	id SERIAL PRIMARY KEY,
 	item VARCHAR(80) NOT NULL,
 	quantity FLOAT NOT NULL,
@@ -11,7 +12,7 @@ CREATE TABLE group_shopping_list (
 );
 
 
-INSERT INTO group_shopping_list 
+INSERT INTO list 
 (item, quantity, unit)
 VALUES
 ('bread', 1, 'loaf'),

@@ -13,6 +13,9 @@ function App() {
     
     const fetchList = () => {
         console.log('in fetchList');
+        axios.get('/list')
+            .then()
+            .catch()
     }
 
 
