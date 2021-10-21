@@ -1,6 +1,6 @@
 import './ShoppingList.css';
 
-function ShoppingList (props){
+function ShoppingList (){
 
 
     return(
