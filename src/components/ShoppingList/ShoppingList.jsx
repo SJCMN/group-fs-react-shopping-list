@@ -12,17 +12,20 @@ function ShoppingList({ shoppingList }) {
       });
   };
 
+  const handleClear = () => {};
+  const handleRemove = () => {};
+
   return (
     <div className="shopping-list-container">
       <div className="shopping-list-header">
         <h2>Shopping List</h2>
-        <button onClick={() => updateItem(`all`)}>Reset</button>
+        <button onClick={() => updateItem(`0`)}>Reset</button>
         <button onClick={handleClear}>Clear</button>
       </div>
 
       <div className="item-container">
-        {ShoppingList.map((listItem) => (
-          <div key={item.id} className="item-card">
+        {shoppingList.map((listItem) => (
+          <div key={listItem.id} className="item-card">
             <h3>{listItem.item}</h3>
             <h5>{listItem.quantity}</h5>
             <h5>{listItem.unit}</h5>
