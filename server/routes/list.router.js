@@ -19,9 +19,30 @@ router.get('/', (req, res) => {
         })
 })
 
-//GET
 
-//POST
+
+// POST Items
+router.post('/', (req, res) => {
+    const newItem = req.body;
+    console.log('new item is:', newItem);
+    
+
+    const sqlText = `INSERT INTO list
+    (item, quantity, unit)
+     VALUES ($1, $2, $3)`;
+
+    let values = [newItem.item, newItem.quantity, newItem.unit]
+
+    pool.query(sqlText, values)
+        .then((response) => {
+            res.sendStatus(201);
+        })
+        .catch((error) => {
+            console.log(`POST Error  to database: ${sqlText}`, error);
+            res.sendStatus(500);
+        });
+});
+
 
 //PUT
 
