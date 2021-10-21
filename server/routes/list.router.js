@@ -11,8 +11,7 @@ const pool = require('../modules/pool.js');
 //PUT
 
 //DELETE
-router.delete('/:id')
-    .then((req, res) => {
+router.delete('/:id', (req, res) => {
         const id = req.params.id;
         const queryText = `DELETE FROM list
             WHERE id = $1;`;
@@ -25,11 +24,7 @@ router.delete('/:id')
         }).catch(err => {
             console.log(err);
             res.sendStatus(500);
-        })
-
-    }).catch(err => {
-        console.log('DELETE ERR', err);
-        res.sendStatus(500);
-    })
+        });
+    });
 
 module.exports = router;
