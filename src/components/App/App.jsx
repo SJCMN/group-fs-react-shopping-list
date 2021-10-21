@@ -47,6 +47,11 @@ function App() {
     }
 
     console.log('shoppingList:', shoppingList);
+
+    useEffect(() => {
+        fetchList();
+    }, [])
+    
     return (
         <div className="App">
             <Header />
@@ -57,9 +62,7 @@ function App() {
         </div>
     );
     
-    useEffect(() => {
-        fetchList();
-    }, [])
+    
 }
 
 export default App;
