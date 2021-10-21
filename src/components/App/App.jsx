@@ -4,6 +4,28 @@ import Header from '../Header/Header.jsx'
 import './App.css';
 
 
+
+
+// POST ROUTE item quantity unit
+
+const addItem = (newItem) => {
+    console.log(newItem);
+    // POST your data here
+
+    axios({
+        method: 'POST',
+        url: '/list',
+        data: newItem
+    })
+    .then((response) => {
+        console.log('Response is', response);
+        getItems();
+        })
+        .catch((error) => {
+        console.log('Error on POST', error);
+        })
+}
+
 function App() {
     return (
         <div className="App">
@@ -13,6 +35,7 @@ function App() {
             </main>
         </div>
     );
+    
 }
 
 export default App;
