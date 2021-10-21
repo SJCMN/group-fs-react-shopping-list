@@ -1,4 +1,5 @@
 import "./ShoppingList.css";
+import axios from "axios";
 
 function ShoppingList({ shoppingList }) {
   const updateItem = (id) => {
@@ -32,7 +33,7 @@ function ShoppingList({ shoppingList }) {
 
             <button
               value={listItem.id}
-              onClick={updateItem}
+              onClick={() => updateItem(listItem.id)}
               className="button-buy"
             >
               BUY
