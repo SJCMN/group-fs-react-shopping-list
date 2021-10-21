@@ -4,9 +4,9 @@ import {useState} from 'react';
 function ShoppingForm({addItem}) {
     console.log('in Shopping Form');
 
-    const [newItemName, setNewItemName] = useState();
-    const [newQuantity, setNewQuantity] = useState();
-    const [newUnit, setNewUnit] = useState();
+    const [newItemName, setNewItemName] = useState('');
+    const [newQuantity, setNewQuantity] = useState('');
+    const [newUnit, setNewUnit] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
