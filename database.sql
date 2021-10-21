@@ -1,6 +1,7 @@
 -- Don't forget to add your create table SQL 
 -- It is also helpful to include some test data
-
+-- db name
+-- fs-react-shopping
 
 CREATE TABLE list (
 	id SERIAL PRIMARY KEY,
