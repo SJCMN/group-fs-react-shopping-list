@@ -11,7 +11,7 @@ CREATE TABLE list (
 );
 
 
-INSERT INTO group_shopping_list 
+INSERT INTO list 
 (item, quantity, unit)
 VALUES
 ('bread', 1, 'loaf'),
