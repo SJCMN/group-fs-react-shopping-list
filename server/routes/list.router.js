@@ -3,7 +3,7 @@ const router = express.Router();
 const pool = require('../modules/pool.js');
 
 // TODO - Add routes here...
-<<<<<<< HEAD
+
 router.get('/', (req, res) => {
     console.log('In server GET');
     const queryText = `
@@ -19,11 +19,10 @@ router.get('/', (req, res) => {
             res.sendStatus(500)
         })
 })
-=======
+
 
 //GET
 
-//POST
 
 // POST Items
 router.post('/', (req, res) => {
@@ -50,6 +49,6 @@ router.post('/', (req, res) => {
 
 //DELETE
 
->>>>>>> master
+
 
 module.exports = router;
