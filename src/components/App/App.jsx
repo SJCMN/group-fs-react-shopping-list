@@ -10,29 +10,27 @@ import ShoppingForm from '../ShoppingForm/ShoppingForm.jsx';
 
 // POST ROUTE item quantity unit
 
-const addItem = (newItem) => {
-    console.log(newItem);
-    // POST your data here
 
-    axios({
-        method: 'POST',
-        url: '/list',
-        data: newItem
-    })
-    .then((response) => {
-        console.log('Response is', response);
-        getItems();
-        })
-        .catch((error) => {
-        console.log('Error on POST', error);
-        })
-}
 
 function App() {
 
-    useEffect(() => {
-        fetchList();
-    }, [])
+    const addItem = (newItem) => {
+        console.log(newItem);
+        // POST your data here
+    
+        axios({
+            method: 'POST',
+            url: '/list',
+            data: newItem
+        })
+        .then((response) => {
+            console.log('Response is', response);
+            fetchList();
+            })
+            .catch((error) => {
+            console.log('Error on POST', error);
+            })
+    }
 
     const [shoppingList, setShoppingList] = useState();
     
@@ -59,6 +57,9 @@ function App() {
         </div>
     );
     
+    useEffect(() => {
+        fetchList();
+    }, [])
 }
 
 export default App;
