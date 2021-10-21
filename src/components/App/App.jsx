@@ -3,35 +3,34 @@ import axios from 'axios'
 import Header from '../Header/Header.jsx'
 import './App.css';
 import { useState, useEffect } from 'react';
+import ShoppingForm from '../ShoppingForm/ShoppingForm.jsx';
 
 
 
 
 // POST ROUTE item quantity unit
 
-const addItem = (newItem) => {
-    console.log(newItem);
-    // POST your data here
 
-    axios({
-        method: 'POST',
-        url: '/list',
-        data: newItem
-    })
-    .then((response) => {
-        console.log('Response is', response);
-        getItems();
-        })
-        .catch((error) => {
-        console.log('Error on POST', error);
-        })
-}
 
 function App() {
 
-    useEffect(() => {
-        fetchList();
-    }, [])
+    const addItem = (newItem) => {
+        console.log(newItem);
+        // POST your data here
+    
+        axios({
+            method: 'POST',
+            url: '/list',
+            data: newItem
+        })
+        .then((response) => {
+            console.log('Response is', response);
+            fetchList();
+            })
+            .catch((error) => {
+            console.log('Error on POST', error);
+            })
+    }
 
     const [shoppingList, setShoppingList] = useState();
     
@@ -54,9 +53,13 @@ function App() {
             <main>
                 <p>Under Construction...</p>
             </main>
+            <ShoppingForm addItem={addItem} />
         </div>
     );
     
+    useEffect(() => {
+        fetchList();
+    }, [])
 }
 
 export default App;
