@@ -1,3 +1,5 @@
+import './ShoppingList.css';
+
 function ShoppingList (){
 
 
