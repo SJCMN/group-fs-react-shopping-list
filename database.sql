@@ -2,7 +2,7 @@
 -- It is also helpful to include some test data
 
 
-CREATE TABLE group_shopping_list (
+CREATE TABLE list (
 	id SERIAL PRIMARY KEY,
 	item VARCHAR(80) NOT NULL,
 	quantity FLOAT NOT NULL,
