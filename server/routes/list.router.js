@@ -6,11 +6,12 @@ const pool = require('../modules/pool.js');
 router.get('/', (req, res) => {
     console.log('In server GET');
     const queryText = `
-        SELECT & FROM list ORDER BY 
+        SELECT * FROM list ORDER BY id
     `
     pool.query(queryText)
         .then(response => {
-            console.log('response from DB: ', response) 
+            console.log('response from DB: ', response)
+            res.send(response.rows) 
         })
         .catch(err => {
             console.log('Error from DB: ', err);
