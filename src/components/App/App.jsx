@@ -3,6 +3,7 @@ import axios from 'axios'
 import Header from '../Header/Header.jsx'
 import './App.css';
 import { useState, useEffect } from 'react';
+import ShoppingForm from '../ShoppingForm/ShoppingForm.jsx';
 
 
 
@@ -54,6 +55,7 @@ function App() {
             <main>
                 <p>Under Construction...</p>
             </main>
+            <ShoppingForm addItem={addItem} />
         </div>
     );
     
