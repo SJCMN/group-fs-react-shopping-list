@@ -24,6 +24,8 @@ router.get('/', (req, res) => {
 // POST Items
 router.post('/', (req, res) => {
     const newItem = req.body;
+    console.log('new item is:', newItem);
+    
 
     const sqlText = `INSERT INTO list
     (item, quantity, unit)
@@ -31,7 +33,7 @@ router.post('/', (req, res) => {
 
     let values = [newItem.item, newItem.quantity, newItem.unit]
 
-    pool.query(sqlText, [values])
+    pool.query(sqlText, values)
         .then((response) => {
             res.sendStatus(201);
         })
