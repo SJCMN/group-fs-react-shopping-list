@@ -12,7 +12,7 @@ function ShoppingList ({shoppingList}){
     
 
 return(
-    console.log('');
+    
 
 )
 
