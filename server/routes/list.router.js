@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool.js');
 
-// TODO - Add routes here...
 
 router.get('/', (req, res) => {
     console.log('In server GET');
@@ -20,8 +19,6 @@ router.get('/', (req, res) => {
         })
 })
 
-
-//GET
 
 
 // POST Items
@@ -48,7 +45,6 @@ router.post('/', (req, res) => {
 //PUT
 
 //DELETE
-
 
 
 module.exports = router;
