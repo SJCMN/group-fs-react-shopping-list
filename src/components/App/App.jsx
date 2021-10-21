@@ -10,15 +10,22 @@ function App() {
     useEffect(() => {
         fetchList();
     }, [])
+
+    const [shoppingList, setShoppingList] = useState();
     
     const fetchList = () => {
         console.log('in fetchList');
         axios.get('/list')
-            .then()
-            .catch()
+            .then(response => {
+                console.log('Response from axios GET: ', response);
+                setShoppingList(response.data)
+            })
+            .catch(err => {
+                console.log('Error on axios GET: ', err);
+            })
     }
 
-
+    console.log('shoppingList:', shoppingList);
     return (
         <div className="App">
             <Header />
