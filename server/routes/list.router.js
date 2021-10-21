@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const pool = require("../modules/pool.js");
 
+// TODO - Add routes here...
 router.get("/", (req, res) => {
   console.log("In server GET");
   const queryText = `
