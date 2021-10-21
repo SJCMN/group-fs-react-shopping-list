@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool.js');
 
-
+// TODO - Add routes here...
 router.get('/', (req, res) => {
     console.log('In server GET');
     const queryText = `
@@ -18,8 +18,6 @@ router.get('/', (req, res) => {
             res.sendStatus(500)
         })
 })
-
-
 
 // POST Items
 router.post('/', (req, res) => {
@@ -51,7 +49,6 @@ router.delete('/:id', (req, res) => {
         const id = req.params.id;
         const queryText = `DELETE FROM list
             WHERE id = $1;`;
-
         const values = [id];
 
         pool.query(queryText, values).then(result => {
@@ -62,5 +59,5 @@ router.delete('/:id', (req, res) => {
             res.sendStatus(500);
         });
     });
-
+    
 module.exports = router;
