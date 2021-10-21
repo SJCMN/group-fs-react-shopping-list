@@ -1,4 +1,6 @@
+import axios from 'axios';
 import './ShoppingItem.css';
+
 
 function ShoppingItem({item, fetchList}) {
     //const id = item.id // assuming that this component is receiving 'item' as a prop
