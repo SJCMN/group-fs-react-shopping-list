@@ -9,6 +9,7 @@ import ShoppingList from "../ShoppingList/ShoppingList.jsx";
 // POST ROUTE item quantity unit
 
 function App() {
+
   const addItem = (newItem) => {
     console.log(newItem);
     // POST your data here
