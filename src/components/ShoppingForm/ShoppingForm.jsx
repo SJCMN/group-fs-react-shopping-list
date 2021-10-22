@@ -18,8 +18,8 @@ function ShoppingForm({ addItem }) {
     };
 
     // call newItem function in App with newItem obj passed as a parameter
-    // addItem(newItem);
     addItem(newItem);
+
     // clear the inputs
     setNewItemName("");
     setNewQuantity("");
@@ -32,11 +32,14 @@ function ShoppingForm({ addItem }) {
       <input
         onChange={(e) => setNewItemName(e.target.value)}
         value={newItemName}
+        required
       />
       <label>Quantity:</label>
       <input
+        type="number"
         onChange={(e) => setNewQuantity(e.target.value)}
         value={newQuantity}
+        required
       />
       <label>Unit(s):</label>
       <input
@@ -45,7 +48,9 @@ function ShoppingForm({ addItem }) {
         }}
         value={newUnit}
       />
-      <button type="submit">Add New Item</button>
+      <button className="button-submit" type="submit">
+        Add New Item
+      </button>
     </form>
   );
 }
