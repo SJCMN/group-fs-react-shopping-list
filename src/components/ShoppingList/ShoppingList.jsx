@@ -1,27 +1,47 @@
-import "./ShoppingList.css";
-import axios from "axios";
+import './ShoppingList.css';
+import axios from 'axios';
 
-function ShoppingList({ shoppingList }) {
-  const updateItem = (id) => {
-    axios
-      .put(`/list/${id}`)
-      .then((response) => {
-        console.log("Update success", response);
-      })
-      .catch((error) => {
-        console.log("Error updating item", error);
-      });
-  };
+function ShoppingList ({shoppingList, fetchList}){
 
-  const handleClear = () => {};
-  const handleRemove = () => {};
+    const deleteStuff = () => {
+        console.log('deleteStuff Called');
+        // this should work in both the list and item scope
+        // server handles request differently depending on the presence of id param;
+        axios.delete(`/list/${typeof item !== "undefined" ? item.id : ''}`)
+            .then(result => {
+                console.log('DELETE success');
+                fetchList();
+            }).catch(err => {
+                console.log('DELETE ERR');
+            });
+
+    }
+
+    const updateItem = (id) => {
+        axios
+          .put(`/list/${id}`)
+          .then((response) => {
+            console.log("Update success", response);
+          })
+          .catch((error) => {
+            console.log("Error updating item", error);
+          });
+      };
+    
+      const handleClear = () => {deleteStuff};
+      const handleRemove = () => {};
 
   return (
     <div className="shopping-list-container">
       <div className="shopping-list-header">
         <h2>Shopping List</h2>
+<<<<<<< HEAD
         <button className="button-reset" onClick={() => updateItem(`0`)}>Reset</button>
         <button className="button-clear" onClick={handleClear}>Clear</button>
+=======
+        <button onClick={() => updateItem(`0`)}>Reset</button>
+        <button onClick={deleteStuff}>Clear</button>
+>>>>>>> master
       </div>
 
       <div className="item-container">

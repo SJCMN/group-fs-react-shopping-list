@@ -65,22 +65,37 @@ router.put("/:id", function (req, res) {
 });
 
 //DELETE
-router.delete("/:id", (req, res) => {
-  const id = req.params.id;
-  const queryText = `DELETE FROM list
-            WHERE id = $1;`;
-  const values = [id];
+// the ? makes the param optional, so we can test if it's undefined
+router.delete('/:id?', (req, res) => {
+        console.log('DELETE accessed');
+        const id = req.params.id;
+        let queryText, values;
 
-  pool
-    .query(queryText, values)
-    .then((result) => {
-      console.log("Item deleted at id:", id);
-      res.sendStatus(204);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.sendStatus(500);
+        if(id){
+            //delete single item if id
+            queryText = `DELETE FROM list
+                WHERE id = $1;`;
+            values = [id];
+
+            pool.query(queryText, values).then(result => {
+                console.log('Item deleted at id:', id);
+                res.sendStatus(204);
+            }).catch(err => {
+                console.log(err);
+                res.sendStatus(500);
+            });
+        }else{
+            //Clear all items if no id
+            queryText = 'DELETE FROM list;';
+
+            pool.query(queryText).then(result => {
+                console.log('List Cleared');
+                res.sendStatus(204);
+            }).catch(err => {
+                console.log(err);
+                res.sendStatus(500);
+            });
+        }
     });
-});
 
 module.exports = router;
