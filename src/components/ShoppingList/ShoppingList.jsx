@@ -7,8 +7,6 @@ function ShoppingList ({shoppingList, fetchList}){
         console.log('deleteStuff Called');
         // this should work in both the list and item scope
         // server handles request differently depending on the presence of id param;
-        
-        //Can't be tested yet, though
         axios.delete(`/list/${typeof item !== "undefined" ? item.id : ''}`)
             .then(result => {
                 console.log('DELETE success');
