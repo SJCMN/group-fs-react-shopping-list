@@ -3,11 +3,12 @@ import './ShoppingItem.css';
 
 
 function ShoppingItem({ listItem, updateItem, deleteStuff }) {
-
+    console.log(listItem);
+    console.log('isPurchased', listItem.ispurchased);
 
     return (
 
-        <div key={listItem.id} className="item-card">
+        <div key={listItem.id} className={listItem.ispurchased ? "item-card bought" : "item-card"}>
             <h3>{listItem.item}</h3>
             <h5 className="quant-unit">{listItem.quantity} {listItem.unit}</h5>
             {/* <h5 className="unit">{listItem.unit}</h5> */}
@@ -17,7 +18,7 @@ function ShoppingItem({ listItem, updateItem, deleteStuff }) {
                 onClick={() => updateItem(listItem.id)}
                 className="button-buy"
             >
-                BUY
+                {listItem.ispurchased ? 'BOUGHT' : 'BUY'}
             </button>
             <button
                 value={listItem.id}
