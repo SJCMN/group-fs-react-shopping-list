@@ -9,7 +9,6 @@ import ShoppingList from "../ShoppingList/ShoppingList.jsx";
 // POST ROUTE item quantity unit
 
 function App() {
-
   const addItem = (newItem) => {
     console.log(newItem);
     // POST your data here
@@ -25,6 +24,7 @@ function App() {
       })
       .catch((error) => {
         console.log("Error on POST", error);
+        alert("Please enter an item name/quantity");
       });
   };
 
@@ -51,7 +51,7 @@ function App() {
       <Header />
       <main>
         <ShoppingForm addItem={addItem} />
-        <ShoppingList shoppingList={shoppingList} fetchList={fetchList}/>
+        <ShoppingList shoppingList={shoppingList} fetchList={fetchList} />
       </main>
     </div>
   );
