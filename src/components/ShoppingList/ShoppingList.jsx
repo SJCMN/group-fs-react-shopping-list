@@ -35,13 +35,10 @@ function ShoppingList ({shoppingList, fetchList}){
     <div className="shopping-list-container">
       <div className="shopping-list-header">
         <h2>Shopping List</h2>
-<<<<<<< HEAD
+
         <button className="button-reset" onClick={() => updateItem(`0`)}>Reset</button>
-        <button className="button-clear" onClick={handleClear}>Clear</button>
-=======
-        <button onClick={() => updateItem(`0`)}>Reset</button>
-        <button onClick={deleteStuff}>Clear</button>
->>>>>>> master
+        <button className="button-clear" onClick={deleteStuff}>Clear</button>
+
       </div>
 
       <div className="item-container">
