@@ -10,6 +10,7 @@
 
 # production
 /build
+nick_notes.txt
 
 # misc
 .DS_Store

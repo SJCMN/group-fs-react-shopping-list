@@ -51,7 +51,7 @@ function App() {
       <Header />
       <main>
         <ShoppingForm addItem={addItem} />
-        <ShoppingList shoppingList={shoppingList} />
+        <ShoppingList shoppingList={shoppingList} fetchList={fetchList}/>
       </main>
     </div>
   );
