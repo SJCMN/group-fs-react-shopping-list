@@ -1,6 +1,20 @@
 import './ShoppingList.css';
 
-function ShoppingList ({ShoppingList}){
+function ShoppingList ({ShoppingList, fetchList}){
+
+    const deleteStuff = () => {
+        // this should work in both the list and item scope
+        // server handles request differently depending on the presence of id param;
+        
+        //Can't be tested yet, though
+        axios.delete(`/list/${item.id || ''}`).then(result => {
+            console.log('DELETE success');
+            fetchList();
+        }).catch(err => {
+            console.log('DELETE ERR');
+        });
+
+    }
 
     return(
         <div className="shopping-list-container" >
@@ -14,6 +28,7 @@ function ShoppingList ({ShoppingList}){
             <div className="item-container">
 
                 {ShoppingList.map((listItem) => (
+                    //<ShoppingItem listItem={listItem} />
                     <div key={item.id} className="item-card">
                         <h3>{listItem.item}</h3>
                         <h5>{listItem.quantity}</h5>
