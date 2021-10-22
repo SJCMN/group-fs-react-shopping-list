@@ -1,13 +1,14 @@
 import './ShoppingList.css';
 import axios from 'axios';
+import ShoppingItem from '../ShoppingItem/ShoppingItem.jsx'
 
-function ShoppingList ({shoppingList, fetchList}){
+function ShoppingList({ shoppingList, fetchList }) {
 
-    const deleteStuff = () => {
+    const deleteStuff = (id) => {
         console.log('deleteStuff Called');
         // this should work in both the list and item scope
         // server handles request differently depending on the presence of id param;
-        axios.delete(`/list/${typeof item !== "undefined" ? item.id : ''}`)
+        axios.delete(`/list/${id}`)
             .then(result => {
                 console.log('DELETE success');
                 fetchList();
@@ -19,54 +20,39 @@ function ShoppingList ({shoppingList, fetchList}){
 
     const updateItem = (id) => {
         axios
-          .put(`/list/${id}`)
-          .then((response) => {
-            console.log("Update success", response);
-          })
-          .catch((error) => {
-            console.log("Error updating item", error);
-          });
-      };
-    
-      const handleClear = () => {deleteStuff};
-      const handleRemove = () => {};
+            .put(`/list/${id}`)
+            .then((response) => {
+                console.log("Update success", response);
+                fetchList();
+            })
+            .catch((error) => {
+                console.log("Error updating item", error);
+            });
+    };
 
-  return (
-    <div className="shopping-list-container">
-      <div className="shopping-list-header">
-        <h2>Shopping List</h2>
 
-        <button className="button-reset" onClick={() => updateItem(`0`)}>Reset</button>
-        <button className="button-clear" onClick={deleteStuff}>Clear</button>
+    return (
+        <div className="shopping-list-container">
+            <div className="shopping-list-header">
+                <h2>Shopping List</h2>
 
-      </div>
+                <button className="button-reset" onClick={() => updateItem(`0`)}>Reset</button>
+                <button className="button-clear" onClick={() => deleteStuff('')}>Clear</button>
 
-      <div className="item-container">
-        {shoppingList.map((listItem) => (
-          <div key={listItem.id} className="item-card">
-            <h3>{listItem.item}</h3>
-            <h5 className="quant-unit">{listItem.quantity} {listItem.unit}</h5>
-            {/* <h5 className="unit">{listItem.unit}</h5> */}
+            </div>
 
-            <button
-              value={listItem.id}
-              onClick={() => updateItem(listItem.id)}
-              className="button-buy"
-            >
-              BUY
-            </button>
-            <button
-              value={listItem.id}
-              onClick={handleRemove}
-              className="button-remove"
-            >
-              REMOVE
-            </button>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+            <div className="item-container">
+                {shoppingList.map((listItem) => (
+                    <ShoppingItem
+                        key={listItem.id}
+                        listItem={listItem}
+                        updateItem={updateItem}
+                        deleteStuff={deleteStuff}
+                    />
+                ))}
+            </div>
+        </div>
+    );
 }
 
 export default ShoppingList;

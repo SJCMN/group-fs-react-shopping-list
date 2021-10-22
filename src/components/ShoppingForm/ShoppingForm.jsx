@@ -33,18 +33,21 @@ function ShoppingForm({addItem}) {
             <input
                 onChange={(e) => setNewItemName(e.target.value)}
                 value={newItemName}
+                required
             />
             <label>Quantity:</label>
             <input
+                type="number"
                 onChange={(e) => setNewQuantity(e.target.value)}
                 value = {newQuantity}
+                required
             />
             <label>Unit(s):</label>
             <input 
                 onChange = {(e) => {setNewUnit(e.target.value)}}
                 value = {newUnit}
             />
-            <button type="submit">Add New Item</button>
+            <button className="button-submit" type="submit">Add New Item</button>
         </form>
     )
 
