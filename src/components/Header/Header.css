@@ -1,5 +1,5 @@
 .banner-header {
-  background-color: silver;
+  background-color: hsla(220, 20%, 90%, .9);
   text-align: center;
-  padding: 0.25em;
+  padding: 2%;
 }

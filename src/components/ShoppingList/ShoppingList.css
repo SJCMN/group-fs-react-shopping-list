@@ -6,8 +6,17 @@
 }
 
 /* all buttons on hover */
+
+button {
+    background: white;
+    border: 1px solid gray; 
+    box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 2px;
+}
+
 button:hover {
     cursor: pointer;
+    background-color: hsla(220, 80%, 70%, .9);
+    color: white;
 }
 
 /* all buttons have a slight travel downwards 3px when clicked on */
@@ -38,9 +47,10 @@ button:active {
 /* main container that holds all of our divs */
 .shopping-list-container{
     /* border: 1px solid red; */
-    margin: 2% 0 0 0; 
+    margin: 4% 0 0 0; 
     min-width: var(--min-width-main);
     border: 1px solid gray;
+    border-radius: 10px;
 }
 
 
@@ -83,6 +93,9 @@ button:active {
     align-items: center;
     margin: 0 auto 0 5px;
 }
+.button-clear:hover {
+   background-color: hsla(360, 90%, 60%, .9);;
+}
 
 
 
@@ -116,6 +129,7 @@ button:active {
                             "buy    remove" ;
     padding: 1%;
     margin: 1%; 
+    box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 4px;
 }
 .item-card h3 {
     text-align: center;
@@ -152,7 +166,6 @@ button:active {
     height: var(--button-height);
     width: 90%;
     border-radius: var(--radius-button);
-    border: 1px solid gray; 
 }
 
 
@@ -165,7 +178,10 @@ button:active {
     grid-area: remove;
 }
 
-
+.button-remove:hover {
+    background-color: hsla(360, 90%, 60%, .9);;
+ }
+ 
 .bought {
     background-color: var(--bg-purchased);
     color: var(--color-purchased);
