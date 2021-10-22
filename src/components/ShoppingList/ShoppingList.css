@@ -1,0 +1,131 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+.shopping-list-container{
+    border: 1px solid red;
+    margin: 2% 0 0 0; 
+}
+
+
+.shopping-list-header{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border: 1px solid red; 
+    display: grid;
+    text-align: center;
+    min-width: 400px;
+    margin: 0 auto 2% auto;
+}
+.shopping-list-header h2{
+   font-size: 1.5rem;
+   padding: 2%;
+   grid-column: span 2;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.button-reset {
+    display: grid;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px 0 auto;
+}
+
+.button-clear {
+    display: grid;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 0 5px;
+}
+
+
+
+/* flex container that holds all of the cards */
+.item-container {
+    border: 1px solid green; 
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+
+/* card */
+.item-card{
+    border: 1px solid yellow;
+    display: grid;
+    justify-content: space-evenly;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-areas:    "item item"
+                            "item item"
+                            "item item"
+                            "quant unit"
+                            "buy remove";
+    padding: 1%;
+    width: 150px;
+    height: 120px;
+    margin: 1%; 
+}
+.item-card h3 {
+    font-size: medium;
+    text-align: center;
+    display: grid;
+    grid-area: item;
+    grid-column: span 6;
+    padding: 5% 0 5% 0; 
+}
+
+
+/* text */
+.quantity {
+    border: 1px solid yellow;
+    text-align-last: right;
+    display: grid;
+    grid-area: quant;
+    align-items: center;
+    padding: 0 3px 0 0;
+}
+
+.unit {
+    border: 1px solid yellow;
+    display: grid;
+    grid-area: unit;
+    align-items: center;
+}
+
+
+
+
+/* buttons */
+
+.button-buy{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-area: buy;
+    font-size: 11px;
+    margin: 0 auto 0 auto; 
+    padding: 2% 15% 2% 15%;
+}
+
+.button-remove{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-area: remove;
+    font-size: 11px;
+    margin: 0 auto 0 auto; 
+    padding: 2% % 2% 5%;
+}
