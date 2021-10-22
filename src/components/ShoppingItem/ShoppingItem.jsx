@@ -18,7 +18,7 @@ function ShoppingItem({ listItem, updateItem, deleteStuff }) {
                 onClick={() => updateItem(listItem.id)}
                 className="button-buy"
             >
-                BUY
+                {listItem.ispurchased ? 'BOUGHT' : 'BUY'}
             </button>
             <button
                 value={listItem.id}
