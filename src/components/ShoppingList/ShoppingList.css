@@ -1,0 +1,161 @@
+/* this targets all HTMl elements and removes their padding and margin properties; each browser has their own default standard */
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* all buttons on hover */
+button:hover {
+    cursor: pointer;
+}
+
+/* all buttons have a slight travel downwards 3px when clicked on */
+button:active {
+    transform: translateY(2px);
+}
+
+
+
+/* let's add a few variables for any changes*/
+:root {
+    --button-height: 20px;
+    --button-width: 70px;
+    --min-width-main: 400px;
+
+    --card-width: 160px;
+    --card-height: 120px;
+
+    --radius-button: 5px; 
+}
+
+
+/* main container that holds all of our divs */
+.shopping-list-container{
+    /* border: 1px solid red; */
+    margin: 2% 0 0 0; 
+    min-width: var(--min-width-main);
+    border: 1px solid gray;
+}
+
+
+
+/* this div holds our shopping list header; h2, button-reset, & button-clear */
+.shopping-list-header{
+    /* border: 1px solid red;  */
+    display: grid;
+    /* set a grid up for our two buttons */
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr;
+    display: grid;
+    align-items: center;
+    text-align: center;
+    margin: 0.5% auto 2% auto;
+}
+.shopping-list-header h2{
+   padding: 1%;
+   grid-column: span 2;
+}
+
+
+.button-reset {
+    display: grid;
+    width: var(--button-width);
+    height: var(--button-height);
+    border-radius: var(--radius-button);
+    /* justify and align are for the position of the RESET text within the button itself; centered both vert. & horz. */
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px 0 auto;
+}
+
+.button-clear {
+    display: grid;
+    width: var(--button-width);
+    height: var(--button-height);
+    border-radius: var(--radius-button);
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 0 5px;
+}
+
+
+
+
+/* FLEX container that holds all of the created cards, dynamic changes to window sizing */
+.item-container {
+    /* border: 1px solid green;  */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+
+
+/* card where we display the item, quantity, and units*/
+.item-card{
+    border: 1px solid black;
+    border-radius: 10px;
+    width: var(--card-width);
+    height: var(--card-height);
+    display: grid;
+    justify-content: space-evenly;
+    align-items: center;
+    grid-template-columns:  1fr 1fr;
+    grid-template-rows: 2fr 1.5fr 1fr;
+
+    /* let's define the areas where we want our content to be placed on our 2 x 3 card grid */
+    grid-template-areas:    "item   item"
+                            "info   info"
+                            "buy    remove" ;
+    padding: 1%;
+    margin: 1%; 
+}
+.item-card h3 {
+    text-align: center;
+    display: grid;
+    /* instead of having to specifically define the size of the gride = 'grid-column: span 2' we can just call the designated grid-area */
+    grid-area: item;
+    justify-items: center;
+    align-items: flex-end;
+}
+/* gives a slight hover effect on the card itself */
+.item-card:hover {
+    background-color: hsla(360, 20%, 95%, .3);
+}
+
+
+.quant-unit {
+    /* border: 1px solid yellow; */
+    display: grid;
+    grid-area: info;
+    justify-content: center;
+}
+
+
+
+
+/* but & remove buttons all properties in common*/
+.button-buy,
+.button-remove {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
+    margin: 0 auto 0 auto; 
+    height: var(--button-height);
+    width: 90%;
+    border-radius: var(--radius-button);
+    border: 1px solid gray; 
+}
+
+
+/* unique button properties */
+.button-buy{
+    grid-area: buy;
+}
+
+.button-remove{
+    grid-area: remove;
+}
