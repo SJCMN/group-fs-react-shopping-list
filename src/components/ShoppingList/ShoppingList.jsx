@@ -1,18 +1,21 @@
 import './ShoppingList.css';
+import axios from 'axios';
 
 function ShoppingList ({shoppingList, fetchList}){
 
     const deleteStuff = () => {
+        console.log('deleteStuff Called');
         // this should work in both the list and item scope
         // server handles request differently depending on the presence of id param;
         
         //Can't be tested yet, though
-        axios.delete(`/list/${item.id || ''}`).then(result => {
-            console.log('DELETE success');
-            fetchList();
-        }).catch(err => {
-            console.log('DELETE ERR');
-        });
+        axios.delete(`/list/${typeof item !== "undefined" ? item.id : ''}`)
+            .then(result => {
+                console.log('DELETE success');
+                fetchList();
+            }).catch(err => {
+                console.log('DELETE ERR');
+            });
 
     }
 
@@ -27,7 +30,7 @@ function ShoppingList ({shoppingList, fetchList}){
           });
       };
     
-      const handleClear = () => {};
+      const handleClear = () => {deleteStuff};
       const handleRemove = () => {};
 
   return (
@@ -35,7 +38,7 @@ function ShoppingList ({shoppingList, fetchList}){
       <div className="shopping-list-header">
         <h2>Shopping List</h2>
         <button onClick={() => updateItem(`0`)}>Reset</button>
-        <button onClick={handleClear}>Clear</button>
+        <button onClick={deleteStuff}>Clear</button>
       </div>
 
       <div className="item-container">
