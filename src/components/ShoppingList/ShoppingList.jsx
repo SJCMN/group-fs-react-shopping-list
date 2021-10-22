@@ -28,8 +28,8 @@ function ShoppingList({ shoppingList }) {
         {shoppingList.map((listItem) => (
           <div key={listItem.id} className="item-card">
             <h3>{listItem.item}</h3>
-            <h5 className="quantity">{listItem.quantity}</h5>
-            <h5 className="unit">{listItem.unit}</h5>
+            <h5 className="quant-unit">{listItem.quantity} {listItem.unit}</h5>
+            {/* <h5 className="unit">{listItem.unit}</h5> */}
 
             <button
               value={listItem.id}

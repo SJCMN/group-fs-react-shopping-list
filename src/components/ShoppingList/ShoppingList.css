@@ -106,7 +106,7 @@ button:active {
 
     /* let's define the areas where we want our content to be placed on our 2 x 3 card grid */
     grid-template-areas:    "item   item"
-                            "quant  unit"
+                            "info   info"
                             "buy    remove" ;
     padding: 1%;
     margin: 1%; 
@@ -125,21 +125,12 @@ button:active {
 }
 
 
-/* quantity and unit info text */
-.quantity {
-    /* border: 1px solid yellow; */
-    text-align-last: right;
-    display: grid;
-    grid-area: quant;
-    align-items: center;
-    padding: 0 3px 0 0;
-}
-
-.unit {
+.quant-unit {
     /* border: 1px solid yellow; */
     display: grid;
-    grid-area: unit;
+    grid-area: info;
     align-items: center;
+    justify-content: center;
 }
 
 
