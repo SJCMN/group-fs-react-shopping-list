@@ -48,7 +48,7 @@ function ShoppingList ({shoppingList, fetchList}){
 
             <button
               value={listItem.id}
-              onClick={updateItem}
+              onClick={() => updateItem(listItem.id)}
               className="button-buy"
             >
               BUY
