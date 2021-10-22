@@ -1,0 +1,51 @@
+
+form {
+    margin: 2% auto 2% auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 80%;
+
+}
+
+label {
+    margin: 2% 0 0 0;
+    font-size: 14px;
+}
+
+input {
+  border: 1px solid;
+  border-radius: 4px;
+  font-size: 1rem;
+  margin: 0.25rem;
+  min-width: 125px;
+  padding: .25%;
+  transition: border-color 0.5s ease-out;
+}
+
+
+/* all input fields in the form will turn green when HTML required field is field */
+input:required:valid {
+  border-color: green;
+}
+input:invalid {
+  border-color: hsla(360, 90%, 60%, .9);
+}
+input:required:focus:valid {
+  background: url("https://assets.digitalocean.com/labs/icons/hand-thumbs-up.svg") no-repeat 95% 50% hsla(120, 40%, 95%, .9);
+  background-size: 15px;
+}
+input:focus:invalid {
+  background: url("https://assets.digitalocean.com/labs/icons/exclamation-triangle-fill.svg") no-repeat 95% 50% hsla(360, 80%, 95%, .9);
+  background-size: 15px;
+}
+
+.button-submit {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding: 0 .5% 0 .5%;
+    margin: 2% auto 0 auto;
+    font-size: 1.25rem;
+    border-radius: 5px;
+    width: 50%;
+}
