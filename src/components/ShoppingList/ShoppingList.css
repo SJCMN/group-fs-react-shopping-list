@@ -27,6 +27,11 @@ button:active {
     --card-height: 120px;
 
     --radius-button: 5px; 
+
+    /* isPurchased === True */
+    --bg-purchased: rgb(195, 195, 195);
+    --bg-purchased-hover: rgb(175, 175, 175);
+    --color-purchased: rgb(102, 102, 102);
 }
 
 
@@ -158,4 +163,19 @@ button:active {
 
 .button-remove{
     grid-area: remove;
+}
+
+
+.bought {
+    background-color: var(--bg-purchased);
+    color: var(--color-purchased);
+    border-color: var(--color-purchased);
+}
+
+.bought:hover {
+    background-color: var(--bg-purchased-hover);
+}
+
+.bought button {
+    color: var(--color-purchased);
 }
